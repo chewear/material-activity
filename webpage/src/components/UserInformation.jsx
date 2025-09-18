@@ -3,8 +3,9 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import About from './About';
+import Skills from './Skills';
 
-export default function UserInformation() {
+export default function UserInformation({ mode }) {
   const [value, setValue] = React.useState('1');
 
   const handleChange = (_event, newValue) => {
@@ -21,9 +22,11 @@ export default function UserInformation() {
           </TabList>
         </Box>
         <TabPanel value="1">
-            <About />
+            <About mode={mode} />
         </TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="2">
+            <Skills mode={mode} />
+        </TabPanel>
       </TabContext>
     </Box>
   );

@@ -1,27 +1,33 @@
 import { Typography, Box } from "@mui/material";
 import MaleIcon from '@mui/icons-material/Male';
-export default function About() {
+import TransgenderIcon from '@mui/icons-material/Transgender';
+
+export default function About({ mode }) {
     return (
         <>
             <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
-                <Typography variant="h6" fontWeight="bold" >Address: </Typography>
-                <Typography variant="h6" marginLeft="0.5rem">Bulacan</Typography>
+                <Typography component="p" fontWeight="bold" >Address: </Typography>
+                <Typography component="p" color="text.secondary" marginLeft="0.5rem">Bulacan</Typography>
             </Box>
-             <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
-                <Typography variant="h6" fontWeight="bold" >Phone: </Typography>
-                <Typography variant="h6" marginLeft="0.5rem">0969696969</Typography>
+            <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
+                <Typography component="p" fontWeight="bold" >Phone: </Typography>
+                <Typography component="p" color="text.secondary" marginLeft="0.5rem">0969696969</Typography>
             </Box>
-             <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
-                <Typography variant="h6" fontWeight="bold" >Email: </Typography>
-                <Typography variant="h6" marginLeft="0.5rem">ikarupogi@gmail.com</Typography>
+            <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
+                <Typography component="p" fontWeight="bold" >Email: </Typography>
+                <Typography component="p" color="text.secondary" marginLeft="0.5rem">
+                    {mode === "dark" ? "ikaruganda@gmail.com" : "ikarupogi@gmail.com"}
+                </Typography>
             </Box>
-             <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
-                <Typography variant="h6" fontWeight="bold" >Birthday: </Typography>
-                <Typography variant="h6" marginLeft="0.5rem">January 6, 2009</Typography>
+            <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
+                <Typography component="p" fontWeight="bold" >Birthday: </Typography>
+                <Typography component="p" color="text.secondary" marginLeft="0.5rem">January 6, 2009</Typography>
             </Box>
-             <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
-                <Typography variant="h6" fontWeight="bold" >Gender: </Typography>
-                <MaleIcon sx={{ marginLeft:"0.5rem", marginRight:"0.5rem" }} />
+            <Box sx={{ display:"flex", alignItems:"center", height:"2rem" }}>
+                <Typography component="p" fontWeight="bold" >Gender: </Typography>
+                {
+                    mode === "dark" ? <TransgenderIcon sx={{ marginLeft:"0.5rem", marginRight:"0.5rem", color:"text.secondary" }} /> : <MaleIcon sx={{ marginLeft:"0.5rem", marginRight:"0.5rem", color:"text.secondary" }} />
+                }
             </Box>
         </>
     );
